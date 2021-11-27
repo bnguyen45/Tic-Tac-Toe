@@ -19,7 +19,7 @@ body {
     display: grid;
     margin: 50px auto;
     vertical-align: center;
-    grid-gap: 10px;
+    grid-gap: 15px;
     grid-template-columns: repeat(3, 1fr);
 
 }
@@ -33,4 +33,5 @@ div>div {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
+    background-color: #191970;
 }
