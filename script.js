@@ -4,7 +4,7 @@ const gameBoardElement = document.querySelector(".game-board");
 const restartButton = document.querySelector(".restartButton");
 
 //Make playerOne start as first
-let playerTwoTurn = false
+let playerTwoTurn = false;
 
 
 
@@ -21,11 +21,12 @@ const winningStates = [
     [2,5,8],
     [0,4,8],
     [2,4,6],
-]
+];
 
 //Create a Start Game Function and for restart Button
-
 restartButton.addEventListener("click", gameStart)
+
+gameStart();//Start Game
 
 function gameStart(){
     playerTwoTurn = false; // Default to playerOne Start as X
@@ -36,4 +37,21 @@ function gameStart(){
         box.addEventListener("click", clickedBox, {once: true}); // Makes sure the click event only happens once per click
 
     })
+};
+
+//Create function for each clicked box
+function clickedBox(event){
+    const box = event.target; // target each clicked box
+    const currentPlayer = playerTwoTurn ? playerTwo : playerOne; // if playerTwoTurn = True , return playerTwo, otherwise return playerOne
+
+    //Create x or o and check for winning conditions
+    createCharacter(box, currentPlayer)
+    if (winnerCheck(currentPlayer)){
+        gameEnd(false);
+    }else if (draw()){
+        gameEnd(true);
+    }else{
+        switchPlayers();
+    }
+
 }
