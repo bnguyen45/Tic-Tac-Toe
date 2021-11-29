@@ -42,3 +42,26 @@ div>div {
     transform: scale(.5.1);
     background-color: #cd5c5c;
 }
+
+.restartButton{
+    display: inline-block;
+    outline: 0;
+    text-align: center;
+    cursor: pointer;
+    padding: 17px 30px;
+    border: 0;
+    color: #fff;
+    font-size: 17.5px;
+    border: 2px solid ;
+    border-color: #fff;
+    background: transparent;
+    font-weight: 800;
+    line-height: 30px;
+    transition: background,color .1s ease-in-out;
+    font-family: 'Press Start 2P', cursive;  
+}
+
+.restartButton:hover{
+    background-color: #191970;
+    color: #cd5c5c;
+}
