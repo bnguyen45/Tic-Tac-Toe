@@ -1,6 +1,5 @@
 //Grab all elements to be interacted with 
 const boxElements = document.querySelectorAll(".box");
-const gameBoardElement = document.querySelector(".game-board");
 const restartButton = document.querySelector(".restartButton");
 const audio = new Audio("blaster.wav");
 
@@ -13,6 +12,7 @@ let playerTurn = false;
 const playerOne = "blue";
 const playerTwo = "red";
 
+
 //Create Winning Conditions for Board // Each array represents a row on the board
 const winningStates = [
     [0,1,2],
@@ -22,6 +22,7 @@ const winningStates = [
     [2,5,8],
     [0,4,8],
     [2,4,6],
+    [0,3,6]
 ];
 
 //Create a Start Game Function and for restart Button
@@ -44,7 +45,7 @@ function gameStart(){
 function clickedBox(event){
     audio.play();
     const box = event.target; // target each clicked box
-    const currentPlayer = playerTurn ? playerTwo : playerOne; // if playerTwoTurn = True , return playerTwo, otherwise return playerOne
+    const currentPlayer = playerTurn ? playerTwo : playerOne; // if playerTurn = True , return playerTwo, otherwise return playerOne
     createCharacter(box, currentPlayer)//Makes x or o
     if (winnerCheck(currentPlayer)){ // Check if current player has winningStates for any row, call gameEnd Function
         gameEnd(false); // if no winners yet gameEnd Function is false
@@ -66,6 +67,7 @@ function winnerCheck(currentPlayer){
     return winningStates.some(state =>{ //Checks for atleast one combination is matched(some method)
         return state.every(i =>{ // Checks for every box that would match atleast one winningState (every method)
             return boxElements[i].classList.contains(currentPlayer);
+            
         })
     })
 }
@@ -82,7 +84,7 @@ function gameEnd(draw) {
 
 //Create drawGame Function
 function drawGame(){
-    return [...boxElements].every(box => { // Checks for every box (every method)
+    return [...boxElements].every(box => { // Put boxElements into a spread Operator => Checks for every box (every method)
         return box.classList.contains(playerOne) || box.classList.contains(playerTwo); // returns the current layout of the boxes to see if its a draw 
     })
 }
