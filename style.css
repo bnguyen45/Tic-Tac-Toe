@@ -36,6 +36,15 @@ div>div {
     background-color: #191970;
 } 
 
+.box:hover{
+    background-color: #e6e6fa;
+    -webkit-transform: scale(1.0);
+    -ms-transform: scale(1.0);
+    transform: scale(1.0);
+}
+
+
+
 .box.red{
     -webkit-transform: scale(.5.1);
     -ms-transform: scale(.5.1);
@@ -65,3 +74,4 @@ div>div {
     background-color: #191970;
     color: #cd5c5c;
 }
+

@@ -2,6 +2,7 @@
 const boxElements = document.querySelectorAll(".box");
 const gameBoardElement = document.querySelector(".game-board");
 const restartButton = document.querySelector(".restartButton");
+const audio = new Audio("blaster.wav");
 
 //Make playerOne start as first
 let playerTurn = false;
@@ -41,10 +42,9 @@ function gameStart(){
 
 //Create function for each clicked box
 function clickedBox(event){
+    audio.play();
     const box = event.target; // target each clicked box
     const currentPlayer = playerTurn ? playerTwo : playerOne; // if playerTwoTurn = True , return playerTwo, otherwise return playerOne
-
-    //Create x or o and check for winning conditions
     createCharacter(box, currentPlayer)//Makes x or o
     if (winnerCheck(currentPlayer)){ // Check if current player has winningStates for any row, call gameEnd Function
         gameEnd(false); // if no winners yet gameEnd Function is false
