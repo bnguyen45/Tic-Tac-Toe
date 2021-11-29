@@ -79,7 +79,9 @@ function gameEnd(draw) {
         alert("It's a Draw!");
     }else{
         alert(`${playerTurn ? "Player 2 Wins" : "Player 1 Wins"}`);
+       
     }
+        
 }
 
 //Create drawGame Function
