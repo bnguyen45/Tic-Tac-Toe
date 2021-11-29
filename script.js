@@ -46,12 +46,35 @@ function clickedBox(event){
 
     //Create x or o and check for winning conditions
     createCharacter(box, currentPlayer)
-    if (winnerCheck(currentPlayer)){
-        gameEnd(false);
-    }else if (draw()){
-        gameEnd(true);
+    if (winnerCheck(currentPlayer)){ // Check if current player has winningStates for any row, call gameEnd Function
+        gameEnd(false); // if no winners yet gameEnd Function is false
+    }else if (drawGame()){ //  drawGame function executes a check of the array if a draw
+        gameEnd(true);// if its a draw or a winner is declared, gameEnd is true and executes
     }else{
         switchPlayers();
     }
 
 }
+
+//Create gameEnd Function
+function gameEnd(draw) {
+    if (draw) {
+        alert("It's a Draw!");
+    }else{
+        alert(`${playerTwoTurn ? "Player 2 Wins" : "Player 1 Wins"}`);
+    }
+}
+
+//Create drawGame Function
+function drawGame(){
+    return winningStates.every(box => {
+        return box.classList.contains(playerOne) || box.classList.contains(playerTwo);
+    })
+}
+
+//Create createCharacter Function
+
+
+
+
+//Create switchPlayers Function
