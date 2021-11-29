@@ -4,13 +4,13 @@ const gameBoardElement = document.querySelector(".game-board");
 const restartButton = document.querySelector(".restartButton");
 
 //Make playerOne start as first
-let playerTwoTurn = false;
+let playerTurn = false;
 
 
 
 //Create Players for Game
-const playerOne = "x";
-const playerTwo = "o";
+const playerOne = "blue";
+const playerTwo = "red";
 
 //Create Winning Conditions for Board // Each array represents a row on the board
 const winningStates = [
@@ -29,7 +29,7 @@ restartButton.addEventListener("click", gameStart)
 gameStart();//Start Game
 
 function gameStart(){
-    playerTwoTurn = false; // Default to playerOne Start as X
+    playerTurn = false; // Default to playerOne Start as X
     boxElements.forEach(box =>{
         box.classList.remove(playerOne);//remove all previous players from last game
         box.classList.remove(playerTwo);
@@ -42,39 +42,53 @@ function gameStart(){
 //Create function for each clicked box
 function clickedBox(event){
     const box = event.target; // target each clicked box
-    const currentPlayer = playerTwoTurn ? playerTwo : playerOne; // if playerTwoTurn = True , return playerTwo, otherwise return playerOne
+    const currentPlayer = playerTurn ? playerTwo : playerOne; // if playerTwoTurn = True , return playerTwo, otherwise return playerOne
 
     //Create x or o and check for winning conditions
-    createCharacter(box, currentPlayer)
+    createCharacter(box, currentPlayer)//Makes x or o
     if (winnerCheck(currentPlayer)){ // Check if current player has winningStates for any row, call gameEnd Function
         gameEnd(false); // if no winners yet gameEnd Function is false
     }else if (drawGame()){ //  drawGame function executes a check of the array if a draw
         gameEnd(true);// if its a draw or a winner is declared, gameEnd is true and executes
     }else{
-        switchPlayers();
+        switchPlayers();//switch players if game doesnt end
     }
 
 }
+
+//Create createCharacter Function
+function createCharacter(box, currentPlayer) { // adds blue or red to the box element
+    box.classList.add(currentPlayer);
+}
+
+//Create winnerCheck Function
+function winnerCheck(currentPlayer){
+    return winningStates.some(state =>{ //Checks for atleast one combination is matched(some method)
+        return state.every(i =>{ // Checks for every box that would match atleast one winningState (every method)
+            return boxElements[i].classList.contains(currentPlayer);
+        })
+    })
+}
+
 
 //Create gameEnd Function
 function gameEnd(draw) {
     if (draw) {
         alert("It's a Draw!");
     }else{
-        alert(`${playerTwoTurn ? "Player 2 Wins" : "Player 1 Wins"}`);
+        alert(`${playerTurn ? "Player 2 Wins" : "Player 1 Wins"}`);
     }
 }
 
 //Create drawGame Function
 function drawGame(){
-    return winningStates.every(box => {
-        return box.classList.contains(playerOne) || box.classList.contains(playerTwo);
+    return [...boxElements].every(box => { // Checks for every box (every method)
+        return box.classList.contains(playerOne) || box.classList.contains(playerTwo); // returns the current layout of the boxes to see if its a draw 
     })
 }
 
-//Create createCharacter Function
-
-
-
 
 //Create switchPlayers Function
+function switchPlayers(){
+    playerTurn = !playerTurn;
+}
