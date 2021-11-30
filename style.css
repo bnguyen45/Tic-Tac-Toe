@@ -111,3 +111,11 @@ div>div {
 
 
 }
+
+.drawScore{
+    color: #f0e68c;
+    background: #fff;
+    display: inline;
+    height:50px;
+    width: 50px;
+}

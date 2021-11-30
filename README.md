@@ -33,7 +33,7 @@ For example, the every(), and some() methods came in handy multiple times when c
 
 Scoreboard
 
-Audio on click
+Audio 
 
 ## Unresolved
 

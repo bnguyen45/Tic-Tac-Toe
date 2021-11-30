@@ -5,9 +5,11 @@ const gameBoard = document.querySelector(".game-board");
 
 
 //Audio
-const audio = new Audio("blaster.wav");
-audio.playbackRate=2;
+const clickSound = new Audio("audio/blaster.wav");
+clickSound.playbackRate=2;
 
+const winSound = new Audio("audio/win.ogg")
+const drawSound = new Audio("audio/beep.wav")
 
 //Make playerOne start as first
 let playerTurn = false;
@@ -15,7 +17,7 @@ let playerTurn = false;
 //ScoreBoard
 function updateBluePoints(){
     let bluePoints = document.querySelector(".blueScore");
-    let blueScore = bluePoints.innerHTML
+    let blueScore = bluePoints.innerHTML;
     
     blueScore++;
     bluePoints.innerHTML = `${blueScore}`
@@ -23,10 +25,17 @@ function updateBluePoints(){
 
 function updateRedPoints(){
     let redPoints = document.querySelector(".redScore");
-    let redScore = redPoints.innerHTML
+    let redScore = redPoints.innerHTML;
     
     redScore++;
     redPoints.innerHTML = `${redScore}`
+}
+
+function updateDrawPoints(){
+    let drawPoints = document.querySelector(".drawScore");
+    let drawScore = drawPoints.innerHTML;
+    drawScore++;
+    drawPoints.innerHTML = `${drawScore}`;
 }
 
 
@@ -68,7 +77,7 @@ function gameStart() {
 
 //Create function for each clicked box
 function clickedBox(event) {
-    audio.play();
+    clickSound.play();
     const box = event.target; // target each clicked box
     const currentPlayer = playerTurn ? playerTwo : playerOne; // if playerTurn = True , return playerTwo, otherwise return playerOne
     createCharacter(box, currentPlayer) //Makes blue or red
@@ -101,15 +110,20 @@ function winnerCheck(currentPlayer) {
 //Create gameEnd Function
 function gameEnd(draw) {
     if (draw) {
+        updateDrawPoints();
         alert("It's a Draw!");
+        drawSound.play();
+        gameBoard.classList.add("disabledButton")
     } else {
         if (playerTurn) {
             updateRedPoints();
             alert("Red Wins!")
+            winSound.play();
             gameBoard.classList.add("disabledButton")
         } else {
             updateBluePoints();
             alert("Blue Wins!")
+            winSound.play();
             gameBoard.classList.add("disabledButton")
         }
         /* alert(`${playerTurn ? "Player 2 Wins" : "Player 1 Wins"}`); */
