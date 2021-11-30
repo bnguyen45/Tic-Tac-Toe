@@ -6,9 +6,16 @@
 
 
 body {
-    background: #000;
+    
     text-align: center;
     font-family: 'Press Start 2P', cursive;
+    background: url("images/background2.jpg")no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+  
 }
 
 .game-title {
@@ -32,14 +39,15 @@ body {
 
 div>div {
     padding: 10px;
-    background-color: #fff;
+    background-color: #171a3e;
+    opacity: 0.9;
 }
 
 .box.blue{
     -webkit-transform: scale(.5.1);
     -ms-transform: scale(.5.1);
     transform: scale(.5.1);
-    background-color: #191970;
+    background-color: #4666FF;
 } 
 
 .box:hover{
@@ -53,7 +61,7 @@ div>div {
     -webkit-transform: scale(.5.1);
     -ms-transform: scale(.5.1);
     transform: scale(.5.1);
-    background-color: #cd5c5c;
+    background-color: #ff0dbf;
 }
 
 .restartButton{
@@ -75,8 +83,8 @@ div>div {
 }
 
 .restartButton:hover{
-    background-color: #191970;
-    color: #cd5c5c;
+    background-color: #4666FF;
+    color: #ff0dbf;
 }
 
 .disabledButton {
@@ -85,14 +93,9 @@ div>div {
 }
 
 
-/* .scoreBoardBlue{
-    display: grid;
-    margin: 50px auto;
-    vertical-align: center;
-} */
 
 .blueScore{
-    color: #191970;
+    color: #4666FF;
     background: #fff;
     height:50px;
     width: 50px;
@@ -103,7 +106,7 @@ div>div {
 }
 
 .redScore{
-    color: #cd5c5c;
+    color: #ff0dbf;
     background: #fff;
     display: inline;
     height:50px;
@@ -113,7 +116,7 @@ div>div {
 }
 
 .drawScore{
-    color: #f0e68c;
+    color: #090617;
     background: #fff;
     display: inline;
     height:50px;

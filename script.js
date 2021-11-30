@@ -6,7 +6,7 @@ const gameBoard = document.querySelector(".game-board");
 
 //Audio
 const clickSound = new Audio("audio/blaster.wav");
-clickSound.playbackRate=2;
+clickSound.playbackRate = 2;
 
 const winSound = new Audio("audio/win.ogg")
 const drawSound = new Audio("audio/beep.wav")
@@ -15,23 +15,23 @@ const drawSound = new Audio("audio/beep.wav")
 let playerTurn = false;
 
 //ScoreBoard
-function updateBluePoints(){
+function updateBluePoints() {
     let bluePoints = document.querySelector(".blueScore");
     let blueScore = bluePoints.innerHTML;
-    
+
     blueScore++;
     bluePoints.innerHTML = `${blueScore}`
 }
 
-function updateRedPoints(){
+function updateRedPoints() {
     let redPoints = document.querySelector(".redScore");
     let redScore = redPoints.innerHTML;
-    
+
     redScore++;
     redPoints.innerHTML = `${redScore}`
 }
 
-function updateDrawPoints(){
+function updateDrawPoints() {
     let drawPoints = document.querySelector(".drawScore");
     let drawScore = drawPoints.innerHTML;
     drawScore++;
@@ -117,7 +117,7 @@ function gameEnd(draw) {
     } else {
         if (playerTurn) {
             updateRedPoints();
-            alert("Red Wins!")
+            alert("Pink Wins!")
             winSound.play();
             gameBoard.classList.add("disabledButton")
         } else {
@@ -126,7 +126,6 @@ function gameEnd(draw) {
             winSound.play();
             gameBoard.classList.add("disabledButton")
         }
-        /* alert(`${playerTurn ? "Player 2 Wins" : "Player 1 Wins"}`); */
 
     }
 
