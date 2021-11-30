@@ -2,7 +2,12 @@
 const boxElements = document.querySelectorAll(".box");
 const restartButton = document.querySelector(".restartButton");
 const gameBoard = document.querySelector(".game-board");
+
+
+//Audio
 const audio = new Audio("blaster.wav");
+audio.playbackRate=2;
+
 
 //Make playerOne start as first
 let playerTurn = false;
