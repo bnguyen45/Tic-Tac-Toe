@@ -10,9 +10,6 @@
   }
 
 
-
-
-
 body {
     background: #000;
     text-align: center;
@@ -21,6 +18,10 @@ body {
 
 .game-title {
     color: #fff;
+}
+
+.scoreBoard{
+    background: #000;
 }
 
 .game-board {
@@ -51,7 +52,6 @@ div>div {
     -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
-
 
 
 .box.red{
@@ -87,4 +87,32 @@ div>div {
 .disabledButton {
     pointer-events: none;
     opacity: 0.4;
+}
+
+
+/* .scoreBoardBlue{
+    display: grid;
+    margin: 50px auto;
+    vertical-align: center;
+} */
+
+.blueScore{
+    color: #191970;
+    background: #fff;
+    height:50px;
+    width: 50px;
+    display: inline;
+
+
+   
+}
+
+.redScore{
+    color: #cd5c5c;
+    background: #fff;
+    display: inline;
+    height:50px;
+    width: 50px;
+
+
 }

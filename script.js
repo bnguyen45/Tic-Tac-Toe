@@ -1,14 +1,28 @@
 //Grab all elements to be interacted with 
 const boxElements = document.querySelectorAll(".box");
 const restartButton = document.querySelector(".restartButton");
+const gameBoard = document.querySelector(".game-board");
 const audio = new Audio("blaster.wav");
 
 //Make playerOne start as first
 let playerTurn = false;
 
 //ScoreBoard
-let blueScore = 0;
-let redScore = 0;
+function updateBluePoints(){
+    let bluePoints = document.querySelector(".blueScore");
+    let blueScore = bluePoints.innerHTML
+    
+    blueScore++;
+    bluePoints.innerHTML = `${blueScore}`
+}
+
+function updateRedPoints(){
+    let redPoints = document.querySelector(".redScore");
+    let redScore = redPoints.innerHTML
+    
+    redScore++;
+    redPoints.innerHTML = `${redScore}`
+}
 
 
 //Create Players for Game
@@ -40,7 +54,7 @@ function gameStart() {
         box.classList.remove(playerTwo);
         box.removeEventListener("click", clickedBox); // remove previous clicked boxes 
         box.addEventListener("click", clickedBox, {
-            once: true  // Makes sure the click event only happens once per click
+            once: true // Makes sure the click event only happens once per click
         })
         gameBoard.classList.remove("disabledButton");
 
@@ -84,16 +98,14 @@ function gameEnd(draw) {
     if (draw) {
         alert("It's a Draw!");
     } else {
-    		if(playerTurn) {
-        	alert("Red wins")
-          redScore += 1;
-          console.log(redScore) //display somewhere
-          gameBoard.classList.add("disabledButton")
+        if (playerTurn) {
+            updateRedPoints();
+            alert("Red Wins!")
+            gameBoard.classList.add("disabledButton")
         } else {
-        	alert("Blue wins")
-          blueScore += 1;
-          console.log(blueScore) //display somewhere
-          gameBoard.classList.add("disabledButton")
+            updateBluePoints();
+            alert("Blue Wins!")
+            gameBoard.classList.add("disabledButton")
         }
         /* alert(`${playerTurn ? "Player 2 Wins" : "Player 1 Wins"}`); */
 
