@@ -1,13 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-@media only screen and (max-width: 756px) {
-    body {
-      width: 75%;
-      height: 75%;
-    }
 
-  }
+
 
 
 body {

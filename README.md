@@ -23,10 +23,17 @@ I then commented out steps into VSCode for each step to code it. After, coding o
 to do on top of my head, I would then research methods on how to implement features that I had trouble with.
 For example, the every(), and some() methods came in handy multiple times when creating this game. 
 
-## Unsolved Problems
+## Extra Features
 
-- Scoreboard
-- mobile friendly
+Scoreboard
+
+Audio on click
+
+## Unresolved
+
+Mobile Friendly
+
+
 
 ## How I solve for the winner
 
