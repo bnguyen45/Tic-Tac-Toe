@@ -54,3 +54,7 @@ I really didn't want to use if/else statements because I felt it wasn't the best
 
 
 
+## Credit
+
+Background Image : https://wallpaperaccess.com/retro-4k
+
