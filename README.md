@@ -53,6 +53,19 @@ I then used the every() array method to check each box element for each player a
 I really didn't want to use if/else statements because I felt it wasn't the best way to check a winner, so I researched for a long time on other ways I could implement this.
 
 
+## Documentation
+every() - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
+
+some() - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+
+once: true - https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+
+contains - https://developer.mozilla.org/en-US/docs/Web/API/Node/contains
+
+audio - https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement/Audio
+
+spread operator - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+
 
 ## Credit
 
