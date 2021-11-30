@@ -6,6 +6,9 @@ const audio = new Audio("blaster.wav");
 //Make playerOne start as first
 let playerTurn = false;
 
+//ScoreBoard
+let blueScore = 0;
+let redScore = 0;
 
 
 //Create Players for Game
@@ -37,8 +40,9 @@ function gameStart() {
         box.classList.remove(playerTwo);
         box.removeEventListener("click", clickedBox); // remove previous clicked boxes 
         box.addEventListener("click", clickedBox, {
-            once: true
-        }); // Makes sure the click event only happens once per click
+            once: true  // Makes sure the click event only happens once per click
+        })
+        gameBoard.classList.remove("disabledButton");
 
     })
 };
@@ -48,7 +52,7 @@ function clickedBox(event) {
     audio.play();
     const box = event.target; // target each clicked box
     const currentPlayer = playerTurn ? playerTwo : playerOne; // if playerTurn = True , return playerTwo, otherwise return playerOne
-    createCharacter(box, currentPlayer) //Makes x or o
+    createCharacter(box, currentPlayer) //Makes blue or red
     if (winnerCheck(currentPlayer)) { // Check if current player has winningStates for any row, call gameEnd Function
         gameEnd(false); // if no winners yet gameEnd Function is false
     } else if (drawGame()) { //  drawGame function executes a check of the array if a draw
@@ -80,7 +84,18 @@ function gameEnd(draw) {
     if (draw) {
         alert("It's a Draw!");
     } else {
-        alert(`${playerTurn ? "Player 2 Wins" : "Player 1 Wins"}`);
+    		if(playerTurn) {
+        	alert("Red wins")
+          redScore += 1;
+          console.log(redScore) //display somewhere
+          gameBoard.classList.add("disabledButton")
+        } else {
+        	alert("Blue wins")
+          blueScore += 1;
+          console.log(blueScore) //display somewhere
+          gameBoard.classList.add("disabledButton")
+        }
+        /* alert(`${playerTurn ? "Player 2 Wins" : "Player 1 Wins"}`); */
 
     }
 
